@@ -3,6 +3,7 @@ const dotenv = require ('dotenv')
 const logger = require('morgan')
 const connectDB = require('./config/db')
 const bootcamp = require('./routers/bootcampRouter')
+const course = require('./routers/courseRouter')
 const ErrorHandler = require('./middleware/error')
 
 //load env vars
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use(logger('dev'))
  
 app.use('/api/v1/bootcamps', bootcamp)
+app.use('/api/v1/courses', course)
 app.use(ErrorHandler)
 
 
