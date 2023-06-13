@@ -5,6 +5,8 @@ const connectDB = require('./config/db')
 const bootcamp = require('./routers/bootcampRouter')
 const course = require('./routers/courseRouter')
 const ErrorHandler = require('./middleware/error')
+const fileupload = require('express-fileupload')
+const path = require('path')
 
 //load env vars
 
@@ -16,6 +18,13 @@ const app = express()
 app.use(express.json())
 app.use(logger('dev'))
  
+//file upload 
+app.use(fileupload())
+
+//set static folder
+app.use(express.static(path.join(__dirname , 'public')))
+
+
 app.use('/api/v1/bootcamps', bootcamp)
 app.use('/api/v1/courses', course)
 app.use(ErrorHandler)

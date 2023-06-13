@@ -42,7 +42,6 @@ const courseSchema = new mongoose.Schema({
 //Static method to get average of course tuitions
 
 courseSchema.statics.getAverageCost = async function (bootcampId){
-    console.log('Calculating avg cost...');
     const response = await this.aggregate([
         {
             $match : {bootcamp:bootcampId}
