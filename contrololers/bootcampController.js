@@ -5,7 +5,6 @@ const geocoder = require('../utils/geocoder')
 const path = require('path')
 
 exports.getBootcamps = asyncHandler (async(req , res , next)=>{
-
         res.status(200).send(res.advancedResults)
 })
 exports.getBootcamp = asyncHandler (async(req , res , next)=>{
@@ -57,7 +56,6 @@ exports.getBootcampsInRadius = asyncHandler (async(req , res , next)=>{
         data : bootcamps
     })
 })
-
 
 exports.bootcampPhotoUpload = asyncHandler (async(req , res , next)=>{
     const bootcamps = await bootcamp.findById(req.params.id)
